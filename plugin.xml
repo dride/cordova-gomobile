@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="cordova-plugin-go-mobile"
+        version="1.0.0">
+
+  <name>Hello Kotlin</name>
+
+  <engines>
+    <engine name="cordova" version=">=7.1.0"/>
+    <engine name="cordova-android" version=">=7.0.0"/>
+  </engines>
+
+  <author email="yossi@dride.io">Yossi Neiman</author>
+
+  <asset src="www/goMobile.js" target="js/goMobile.js"/>
+
+  <js-module src="www/goMobile.js" name="goMobile">
+    <clobbers target="goMobile" />
+  </js-module>
+
+  <platform name="ios" >
+    <!-- Add support -->
+    <hook type="after_plugin_add" src="hooks/add-framework.js" />
+    <hook type="after_platform_add" src="hooks/add-framework.js" />
+
+    <!-- Cleanup on uninstall -->
+    <hook type="before_plugin_rm" src="hooks/rm-framework.js" />
+    <hook type="before_plugin_uninstall" src="hooks/rm-framework.js" />
+
+    <config-file target="config.xml" parent="/*">
+        <feature name="GlueSwift">
+            <param name="ios-package" value="GlueSwift" />
+        </feature>
+    </config-file>
+    <source-file src="src/ios/glue.swift" />
+
+
+  </platform>
+</plugin>
