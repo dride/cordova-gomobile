@@ -1,0 +1,22 @@
+{
+  "name": "cordova-gomobile",
+  "version": "0.0.1",
+  "description": "Cross-platform Native logic in Go for Cordova ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dride/cordova-gomobile.git"
+  },
+  "keywords": [
+    "cordova"
+  ],
+  "author": "Yossi Neiman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dride/cordova-gomobile/issues"
+  },
+  "homepage": "https://github.com/dride/cordova-gomobile#readme"
+}
