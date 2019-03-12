@@ -1,1 +1,1 @@
-# cordova-gomobile
+= WORK IN PROGRESS =
