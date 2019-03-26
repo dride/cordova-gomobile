@@ -1,3 +1,5 @@
 # CordovaGoCore
 
-Cordova polign for goCore
+Automatically generated
+
+Todo: auto generate docs
