@@ -19,7 +19,20 @@ Clone this project into your \$GOPATH
 
 > npm run build
 
-### Need to change your GOPATH
+### What happens on build?
+
+- [x]  Your index.go file is parsed and all functions are exported
+- [x]  CordovaGoCore.swift is generated according to your index.go
+- [x]   CordovaGoCore.java  is generated according to your index.go
+- [x]   www/index.js bridge is created according to your index.go
+- [x]   Types file is generated ✨
+
+
+## FAQ
+
+### How to update my GOPATH
 
 export GOPATH=$HOME/cordova-gomobile/
+
 export GOBIN=$GOPATH/bin
+
