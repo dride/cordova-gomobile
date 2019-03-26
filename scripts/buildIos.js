@@ -21,11 +21,14 @@ function buildiOS(sourceMap) {
 
     par = par.slice(0, -2);
     varDesc = varDesc.slice(0, -1);
+    if (sourceMap[k].Return == "bool") {
+      par += par ? ", &resp" : "&resp";
+    }
     if (sourceMap[k].Return) {
       par += par ? ", &error" : "&error";
     }
 
-    swift += `
+     swift += `
       @objc(${sourceMap[k].Name}:)
       func ${sourceMap[k].Name}(command: CDVInvokedUrlCommand) {
           var pluginResult = CDVPluginResult(
@@ -61,6 +64,7 @@ function buildiOS(sourceMap) {
                 }
                 `
                 : `
+                var resp: ObjCBool = true;
                 DashcamCore${sourceMap[k].Name}(${par})
                 if (error != nil){
                   pluginResult = CDVPluginResult(
