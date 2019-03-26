@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+  Created by Yossi Neiman (Dride, inc.).
+-->
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+		xmlns:android="http://schemas.android.com/apk/res/android" 
+		id="cordova-go-core" version="0.0.1">
+	<name>CordovaGoCore</name>
+	<description>Cordova DashcamCore plugins</description>
+	<license>MIT</license>
+	<keywords>cordova, plugin, dride, android, ios</keywords>
+
+    <!-- ES6 promise polyfill -->
+    <dependency id="es6-promise-plugin" version="4.1.0" />
+	
+	<js-module src="www/index.js" name="CordovaGoCore">
+			<clobbers target="window.CordovaGoCore" />
+	</js-module>
+
+	<!-- iOS -->
+	<platform name="ios">
+		<config-file target="config.xml" parent="/*">
+			<feature name="CordovaGoCore">
+				<param name="ios-package" value="CordovaGoCore" />
+			</feature>
+		</config-file>
+		<source-file src="src/ios/CordovaGoCore.swift" />
+		<framework src="sdk/GoCore.framework" custom="true"  />
+		<dependency id="cordova-plugin-add-swift-support" version="1.7.2"/>
+	</platform>
+
+	<!-- Android -->
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="CordovaGoCore">
+				<param name="android-package" value="cordova.plugins.CordovaGoCore"/>
+			</feature>
+		</config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+				<uses-permission android:name="android.permission.INTERNET"/>
+				<uses-permission android:name="android.permission.NETWORK_ACCESS" />
+				<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+		</config-file>
+
+		<framework src="src/android/cordova/plugins/GoCore.gradle" custom="true" type="gradleReference" />
+    	<resource-file src="sdk/goCore.aar" target="libs/goCore.aar" target-dir="libs" framework="true"/>
+
+		<source-file src="src/android/cordova/plugins/CordovaGoCore.java" target-dir="src/cordova/plugins/"/>
+		
+	</platform>
+</plugin>

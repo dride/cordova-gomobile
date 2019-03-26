@@ -1,0 +1,1 @@
+[{"Name":"LoadUser","Params":[{"Name":"userId","PType":"string"}],"Return":"string","Comment":"LoadClips will load clips form Dashcam\n"}]

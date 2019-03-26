@@ -3,7 +3,7 @@
         id="cordova-plugin-go-mobile"
         version="1.0.0">
 
-  <name>Hello Kotlin</name>
+  <name>GoCore</name>
 
   <engines>
     <engine name="cordova" version=">=7.1.0"/>

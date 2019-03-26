@@ -1,22 +1,33 @@
 {
-  "name": "cordova-gomobile",
+  "name": "go-core",
   "version": "0.0.1",
-  "description": "Cross-platform Native logic in Go for Cordova ",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:ios": "node scripts/build.js ios",
+    "build:android": "node scripts/build.js android",
+    "build": "npm run build:ios && npm run build:android && npm run createInterface && npm run addTypes",
+    "createInterface": "node scripts/createInterface.js",
+    "addTypes": "tsc -p cordova-go-core/src/ionic"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dride/cordova-gomobile.git"
+    "url": "git+https://github.com/dride/go-core.git"
   },
-  "keywords": [
-    "cordova"
-  ],
-  "author": "Yossi Neiman",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dride/cordova-gomobile/issues"
+    "url": "https://github.com/dride/go-core/issues"
   },
-  "homepage": "https://github.com/dride/cordova-gomobile#readme"
+  "homepage": "https://github.com/dride/go-core#readme",
+  "dependencies": {
+    "camelcase": "^5.2.0",
+    "ncp": "^2.0.0",
+    "node-go-require": "^1.1.5",
+    "prettier": "^1.16.4",
+    "rimraf": "^2.6.3",
+    "wildcard-regex": "^3.0.2",
+    "xcode": "^2.0.0"
+  }
 }
