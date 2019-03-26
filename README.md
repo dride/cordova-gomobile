@@ -17,10 +17,6 @@ Clone this project into your \$GOPATH
 
 > npm run build
 
-### Run for debug
-
-> go ?
-
 ### Need to change your GOPATH
 
 export GOPATH=$HOME/cordova-gomobile/
