@@ -10,7 +10,7 @@ var packageName = require("../package.json").name;
 exec(
   "cd sdk && gomobile bind -target=" +
     process.argv[2] +
-    " " +
+    ' -ldflags "-s -w" ' +
     camelCase(packageName),
   function(err, stdout, stderr) {
     console.log(stdout);
