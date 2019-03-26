@@ -9,9 +9,11 @@ Clone this project into your \$GOPATH
 
 ### Install goMobile
 
-> go get golang.org/x/mobile/cmd/gomobile
-> gomobile init
-> npm install
+`go get golang.org/x/mobile/cmd/gomobile`
+
+`gomobile init`
+
+`npm install`
 
 ### Build Cordova plugin
 
